@@ -106,6 +106,101 @@ void printBTree(struct BTree *p)
     }
 }
 
+void preorder(node *rt)
+//     {
+//         if (rt)
+//         {
+//             cout << rt->data << ", ";
+//             preorder(rt->left);
+//             preorder(rt->right);
+//         }
+//     }
+// 
+//     void iterativePreorder(node *root)
+//     {
+//         if(root==NULL) return;
+//         
+//         stack<node*> st;
+//         st.push(root);
+// 
+//         while(!st.empty())
+//         {
+//             node *f=st.top();
+//             st.pop();
+//             cout<<f->data<<", ";
+//             if(f->right) st.push(f->right);
+//             if(f->left) st.push(f->left);
+//         }
+//         cout<<endl;
+//     }
+//     
+//     void inorder(node *root)
+//     {
+//         if(root)
+//         {
+//             inorder(root->left);
+//             cout<<root->data<<", ";
+//             inorder(root->right);
+//         }
+//     }
+// 
+//     void iterativeInorder(node *root)
+//     {
+//         if(root==NULL) return ;
+//         stack<node*> st;
+// 
+//         while(root || !st.empty())
+//         {
+//             while(root)
+//             {
+//                 st.push(root);
+//                 root=root->left;
+//             }
+//             root=st.top();
+//             st.pop();
+//             cout<<root->data<<", ";
+//             root=root->right;
+//         }
+//     cout<<endl;
+//     }
+// 
+//     void postorder(node *root)
+//     {
+//         if(root)
+//         {
+//             postorder(root->left);
+//             postorder(root->right);
+//             cout<<root->data<<", ";
+//         }
+//     }
+// 
+//     void iterativePostorder(node *root)
+//     {
+//         if(root==NULL) return;
+// 
+//         stack<node*> st1,st2;
+//         st1.push(root);
+// 
+//         while(!st1.empty())
+//         {
+//             node *f=st1.top();
+//             st1.pop();
+// 
+//             if(f->left) st1.push(f->left);
+//             if(f->right) st1.push(f->right);
+// 
+//             st2.push(f);
+//         }
+// 
+//         while(!st2.empty())
+//         {
+//             node *f=st2.top();
+//             st2.pop();
+//             cout<<f->data<<", ";
+//         }
+//         cout<<endl;
+//     }
+
 bool isBTSame(struct BTree *a,struct BTree *b)
 {
     if(a==NULL && b==NULL)
