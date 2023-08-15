@@ -106,7 +106,7 @@ int minSteps3(int n)
             y=a[i/2];
         
         if(i%3==0)
-            y=a[i/3];
+            z=a[i/3];
 
         a[i]=min(x,min(y,z))+1;    
     }
