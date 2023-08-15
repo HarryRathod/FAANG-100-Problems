@@ -1,6 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+int grid(int m,int n)  //Recursive Solution - O[2^N].
+{
+    if(m<0 || n<0) return 0;
+    if(m==0 && n==0) return 1;
+
+    return grid(m-1,n)+grid(m,n-1);
+}
+
 int uniqueGrid(int m,int n)
 {
     int a[m][n];
@@ -36,7 +44,8 @@ int main()
 {
     int m=3;
     int n=3;
-
+    
+    cout<<grid(m-1,n-1)<<endl; //working on 0 based indexing. that's why subtracted 1 from both.
     cout<<uniqueGrid(m,n)<<endl;
     cout<<uniqueGrid2(m,n)<<endl;
 
