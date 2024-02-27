@@ -106,7 +106,7 @@ void printBTree(struct BTree *p)
     }
 }
 
-void preorder(node *rt)
+// void preorder(node *rt)
 //     {
 //         if (rt)
 //         {
@@ -275,6 +275,32 @@ void levelOrder(struct BTree *p)
     }
     
 }
+
+//LevelOrder Traversal Space Optimized Code (Submitted on Leetcode)
+class Solution {
+public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        vector<vector<int> > ans;
+        if(root==NULL) return ans;
+        queue<TreeNode*> q;
+        q.push(root);
+        while(!q.empty())
+        {
+            vector<int> v;
+            int sz=q.size();
+            while(sz--)
+            {
+                TreeNode *temp=q.front();
+                q.pop();
+                v.push_back(temp->val);
+                if(temp->left) q.push(temp->left);
+                if(temp->right) q.push(temp->right);
+            }
+            ans.push_back(v);
+        }
+        return ans;
+    }
+};
 
 vector<vector<int> > levelOrder2(struct BTree *p)
 {
