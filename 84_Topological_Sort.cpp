@@ -36,11 +36,9 @@ vector<int> topologicalSort(vector<vector<int> > &grid)
         q.pop();
         ans.push_back(cv);
 
-    for(int i=0;i<m;i++)
-    {
         for(int j=0;j<n;j++)
         {
-            if(grid[i][j]==1)
+            if(grid[cv][j]==1)
             {
                 indegree[j]--;
                 if(indegree[j]==0)
@@ -48,20 +46,18 @@ vector<int> topologicalSort(vector<vector<int> > &grid)
             }
         }
     }
-
-    }
     
     return ans;
 }
 
 int main()
 {
-    vector<vector<int> > grid{{0,0,0,1,0,0},
-                              {0,0,1,0,0,0},
-                              {0,0,0,0,1,0},
-                              {0,0,0,0,1,1},
-                              {0,0,0,0,0,1},
-                              {0,0,0,0,0,0}};
+    vector<vector<int> > grid{{0,0,0,0,0,0},
+                              {1,0,0,0,0,0},
+                              {0,1,0,0,0,0},
+                              {1,1,0,0,0,0},
+                              {0,0,0,1,0,0},
+                              {0,0,1,0,0,0}};
 
     vector<int> indegree=topologicalSort(grid);
     for(int i=0;i<indegree.size();i++)
