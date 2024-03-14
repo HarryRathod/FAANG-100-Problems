@@ -66,6 +66,45 @@ vector<pair<int,int> > kruskalAlgorithm(vector<vector<int> > matrix)
     return mst;
 }
 
+//More Efficient Approach - Store values of i,j in edge with weights. So, No need to use two for loops.
+vector<pair<int,int> > kruskalAlgorithm(vector<vector<int> > matrix)
+{
+    int m=matrix.size();
+    int n=matrix[0].size();
+    vector<pair<int,int> > mst;
+    
+    vector<vector<int>> edge;
+    for(int i=0;i<m;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        {
+            if(matrix[i][j]!=0)
+                edge.push_back({matrix[i][j],i,j});
+        }
+    }
+
+    vector<int> parent(m,0);
+    for(int i=0;i<m;i++)
+    {
+        parent[i]=i;
+    }
+
+    sort(edge.begin(),edge.end());
+
+    for(int k=0;k<edge.size();k++)
+    {
+        int x=find(parent,edge[i][1]);
+        int y=find(parent,edge[i][2]);
+        if(x!=y)
+        {
+            mst.push_back({edge[i][1],edge[i][2]});
+            Union(parent,x,y);
+        }
+    }   
+
+    return mst;
+}
+
 int main()
 {
     vector<vector<int> > matrix{{0,9,5,0,11},
