@@ -6,6 +6,13 @@ void rotateMatrixCC90(vector<vector<int> > &matrix)
     int m=matrix.size();
     int n=matrix[0].size();
 
+    /* Note: In place using following two for loop method, use single for loop method, where set value as follow:
+    vector<vector<int>> ans(n,vector<int>(m,0));
+    for(int i=0;i<n;i++){
+    for(int j=0;j<m;j++)
+        ans[i][j]=matrix[m-1-j][i];
+        }
+    */
     for(int i=0;i<m;i++)
     {
         for(int j=i;j<n;j++)
